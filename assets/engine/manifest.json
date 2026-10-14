@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "engineVersion": "0.1.0",
+  "whoCommit": "b776d8a12b1c97369c748b561159fd2ec4f4db58",
+  "sysdataSHA256": "e021d51a1e95237e141d7c85382887997d62c8ccd092a791c8fad003d7a5e7c7",
+  "tables": {
+    "wei": {
+      "rows": 3654,
+      "sex": [
+        1,
+        2
+      ],
+      "min": 0.0,
+      "max": 1826.0,
+      "sysdataExportSHA256": "9b22a8d729517530438e02f7061d8a8656a0f8c986d9e088be4eba06c085d013",
+      "rawSourceSHA256": "bc15a6a623dd1d5beaeed1497666332aa54bc4ccd15ff9658c487d79694ab77b",
+      "exactLMSVerified": true
+    },
+    "len": {
+      "rows": 3654,
+      "sex": [
+        1,
+        2
+      ],
+      "min": 0.0,
+      "max": 1826.0,
+      "sysdataExportSHA256": "709f7a11881451daf7820f022d363d5bdb93746b5361d6bd9218af6ff838e0c2",
+      "rawSourceSHA256": "709f7a11881451daf7820f022d363d5bdb93746b5361d6bd9218af6ff838e0c2",
+      "exactLMSVerified": true
+    },
+    "wfl": {
+      "rows": 1302,
+      "sex": [
+        1,
+        2
+      ],
+      "min": 45.0,
+      "max": 110.0,
+      "sysdataExportSHA256": "ad470cf41b147bd2a16026e57fd17968df7bf746b9f0bf2ff85df95239643778",
+      "rawSourceSHA256": "ad470cf41b147bd2a16026e57fd17968df7bf746b9f0bf2ff85df95239643778",
+      "exactLMSVerified": true
+    },
+    "wfh": {
+      "rows": 1102,
+      "sex": [
+        1,
+        2
+      ],
+      "min": 65.0,
+      "max": 120.0,
+      "sysdataExportSHA256": "0050d31041c2f7d4f8a34f27e8066fd73a24806835b9e4a0de1a7ee46d54d582",
+      "rawSourceSHA256": "0050d31041c2f7d4f8a34f27e8066fd73a24806835b9e4a0de1a7ee46d54d582",
+      "exactLMSVerified": true
+    }
+  },
+  "sourceExecutionSHA256": "c0eb9d6856cc684a0eefacdbef3a9df9397f1948e687bc684e118b3b160841a6",
+  "exportCommand": [
+    "C:\\Users\\user\\AppData\\Local\\hermes\\profiles\\dev\\cache\\scratch\\oracle-r\\runtime\\app\\bin\\x64\\Rscript.exe",
+    "--vanilla",
+    "C:\\Users\\user\\Documents\\Kuliah\\SEMESTER 5\\MOBILE PROGRAMMING\\Pertemuan 7\\Revisi_Tahap_2\\bukti\\dev\\implementasi-engine\\export.R"
+  ],
+  "exportExitCode": 0,
+  "license": "GPL-3; derived package tables; separate rights review before public distribution",
+  "tablesSHA256": "656d7ca5a100e50af61008d7c72a59468c16c5a2affd51010dfc77c8bcb5fb7b"
+}
