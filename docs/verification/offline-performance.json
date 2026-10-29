@@ -1,0 +1,71 @@
+{
+  "at": "2026-10-30T00:24:22.120072",
+  "platform": "windows",
+  "scope": "Flutter test host, encrypted Sembast file; not Android SQLite or UI frame timing",
+  "profiles": 100,
+  "approvedMeasurements": 100,
+  "metrics": {
+    "register": {
+      "samples": 100,
+      "p95Ms": 111.485,
+      "maxMs": 127.471
+    },
+    "save": {
+      "samples": 100,
+      "p95Ms": 59.381,
+      "maxMs": 116.551
+    },
+    "submit": {
+      "samples": 100,
+      "p95Ms": 105.829,
+      "maxMs": 115.345
+    },
+    "approve": {
+      "samples": 100,
+      "p95Ms": 57.854,
+      "maxMs": 60.307
+    },
+    "aggregate": {
+      "samples": 20,
+      "p95Ms": 0.934,
+      "maxMs": 1.313
+    },
+    "aggregateHistory": {
+      "samples": 20,
+      "p95Ms": 5.195,
+      "maxMs": 7.21
+    },
+    "dashboard": {
+      "samples": 20,
+      "p95Ms": 11.666,
+      "maxMs": 18.794
+    },
+    "pdf": {
+      "samples": 1,
+      "p95Ms": 130.294,
+      "maxMs": 130.294
+    },
+    "excel": {
+      "samples": 1,
+      "p95Ms": 239.997,
+      "maxMs": 239.997
+    },
+    "reopen": {
+      "samples": 1,
+      "p95Ms": 239.048,
+      "maxMs": 239.048
+    }
+  },
+  "p95LimitsMs": {
+    "register": 1000,
+    "save": 1000,
+    "submit": 1000,
+    "approve": 1000,
+    "aggregate": 250,
+    "aggregateHistory": 1000,
+    "dashboard": 250,
+    "pdf": 2000,
+    "excel": 2000,
+    "reopen": 2000
+  }
+}

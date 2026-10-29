@@ -1,0 +1,12 @@
+{
+  "archive": "Kode_Sumber_SI-GIBAS.zip",
+  "sourceFiles": 136,
+  "bytes": 607044,
+  "sha256": "04BFDBF95EFFD3CD490C5932718A376074DB28BD702D111AF23A0ED31935E3D9",
+  "crcValid": true,
+  "allEntryHashesMatch": true,
+  "repository": "mzbagus12/SIGIBAS",
+  "includesGradleWrapper": true,
+  "includesApk": false,
+  "includesRuntimeDatabase": false
+}

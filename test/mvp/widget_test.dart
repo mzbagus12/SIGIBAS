@@ -26,10 +26,14 @@ void main() {
           today: '2026-10-14',
         ),
       ))!;
-      await tester.pumpWidget(MaterialApp(home: MvpWorkspace(repo: repo)));
+      await tester.pumpWidget(
+        MaterialApp(
+          home: MvpWorkspace(repo: repo, role: 'Kader', onLogout: () {}),
+        ),
+      );
       await tester.tap(find.text('Daftar anak'));
       await tester.pumpAndSettle();
-      expect(find.textContaining('FormatException'), findsOneWidget);
+      expect(find.textContaining('FormatException'), findsNothing);
       await tester.enterText(find.byKey(const Key('name')), 'Anak Demo');
       await tester.enterText(find.byKey(const Key('birth')), '2024-01-01');
       await tester.tap(find.text('Daftar anak'));
@@ -47,22 +51,96 @@ void main() {
       });
       await tester.pumpWidget(
         MaterialApp(
-          home: MvpWorkspace(key: UniqueKey(), repo: repo),
+          home: MvpWorkspace(
+            key: UniqueKey(),
+            repo: repo,
+            role: 'BadanGizi',
+            onLogout: () {},
+          ),
         ),
       );
       await tester.pumpAndSettle();
-      await tester.tap(find.text('BadanGizi'));
+
+      expect(find.byKey(const Key('revision-table')), findsOneWidget);
+      expect(find.text('Tanggal ukur'), findsOneWidget);
+      await tester.ensureVisible(
+        find.byKey(const Key('revision-select-revision:d')),
+      );
+      await tester.tap(find.byKey(const Key('revision-select-revision:d')));
       await tester.pumpAndSettle();
-      expect(find.textContaining('weightAge |'), findsOneWidget);
-      expect(find.textContaining('heightAge |'), findsOneWidget);
-      expect(find.textContaining('weightHeight |'), findsOneWidget);
+      expect(
+        find.text(
+          'Isi alasan saat menolak agar kader tahu apa yang perlu diperbaiki. Catatan tersimpan di riwayat.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.textContaining('Berat badan menurut umur'), findsOneWidget);
+      expect(
+        find.textContaining('Panjang/tinggi badan menurut umur'),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('Berat badan menurut panjang/tinggi'),
+        findsOneWidget,
+      );
+      expect(find.text('Detail teknis'), findsNothing);
+      expect(find.text('Riwayat audit teknis'), findsNothing);
+      expect(find.text('Hasil pengukuran'), findsOneWidget);
+      expect(find.text('Tanggal ukur'), findsNWidgets(2));
+      expect(find.text('Berat badan'), findsOneWidget);
+      expect(find.text('Panjang / tinggi'), findsOneWidget);
       await tester.ensureVisible(find.text('Tolak'));
       await tester.tap(find.text('Tolak'));
       await tester.pumpAndSettle();
       expect(find.textContaining('Catatan penolakan wajib'), findsOneWidget);
-      await tester.tap(find.text('Pemerintah'));
+      expect(find.textContaining('Bad state:'), findsNothing);
+      await tester.enterText(find.byKey(const Key('note')), 'Ukur ulang');
+      await tester.ensureVisible(find.text('Tolak'));
+      await tester.tap(find.text('Tolak'));
       await tester.pumpAndSettle();
-      expect(find.text('Agregat approved — baca saja'), findsOneWidget);
+      expect(find.text('Anak Demo — Ditolak'), findsOneWidget);
+      expect(find.textContaining('Catatan: Ukur ulang'), findsOneWidget);
+      await tester.pumpWidget(
+        MaterialApp(
+          home: MvpWorkspace(
+            key: UniqueKey(),
+            repo: repo,
+            role: 'Kader',
+            onLogout: () {},
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(
+        find.byKey(const Key('revision-select-revision:d')),
+      );
+      await tester.tap(find.byKey(const Key('revision-select-revision:d')));
+      await tester.pumpAndSettle();
+      expect(find.byKey(const Key('revision-table')), findsOneWidget);
+      await tester.ensureVisible(find.text('Koreksi'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Koreksi'));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Form koreksi siap'), findsOneWidget);
+      expect(
+        tester
+            .widget<TextField>(find.byKey(const Key('weight')))
+            .controller!
+            .text,
+        '12.0',
+      );
+      await tester.pumpWidget(
+        MaterialApp(
+          home: MvpWorkspace(
+            key: UniqueKey(),
+            repo: repo,
+            role: 'Pemerintah',
+            onLogout: () {},
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Ringkasan data disetujui'), findsOneWidget);
       expect(find.text('Daftar anak'), findsNothing);
       expect(find.text('Anak Demo'), findsNothing);
       await repo.close();

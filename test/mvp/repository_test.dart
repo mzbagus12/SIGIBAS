@@ -51,6 +51,205 @@ void main() {
     expect(repo.state['children'][id]['name'], 'Anak Sintetis');
   });
   test(
+    'antrean demo tersimpan offline dan ACK cocok diperlukan sebelum terkirim',
+    () async {
+      final c = await child();
+      final r = await repo.save('queue-draft', c, input());
+      await repo.submit('queue-submit', r);
+      expect(repo.pendingDemoSyncCount, 1);
+      final first = await repo.syncDemo(
+        (_, _, _) async => throw StateError('offline'),
+      );
+      expect(first.sent, 0);
+      expect(first.remaining, 1);
+      await repo.close();
+      repo = await MvpRepository.open(
+        await databaseFactoryIo.openDatabase('${dir.path}/data.db'),
+        engine,
+        today: '2026-10-14',
+      );
+      expect(repo.pendingDemoSyncCount, 1);
+      final wrong = await repo.syncDemo(
+        (_, _, _) async => {'status': 'pending', 'revision_id': 'wrong'},
+      );
+      expect(wrong.remaining, 1);
+      final sent = await repo.syncDemo((role, path, body) async {
+        expect(role, 'kader');
+        expect(path, '/revisions');
+        final payload = body['payload'] as Map;
+        expect(payload.keys.toSet(), {
+          'synthetic',
+          'child_id',
+          'revision_id',
+          'weight',
+          'height',
+        });
+        expect(payload.toString(), isNot(contains('Anak Sintetis')));
+        return {'status': 'pending', 'revision_id': payload['revision_id']};
+      });
+      expect(sent.sent, 1);
+      expect(sent.remaining, 0);
+      expect(repo.state['revisions'][r]['status'], 'pending');
+      expect(
+        (await repo.syncDemo((_, _, _) async => throw StateError('no repeat')))
+            .sent,
+        0,
+      );
+    },
+  );
+  test(
+    'pengiriman diulang dengan operation ID sama setelah respons hilang',
+    () async {
+      final c = await child();
+      final revision = await repo.save('lost-draft', c, input());
+      await repo.submit('lost-submit', revision);
+      String? committedOperation;
+      var requestCount = 0;
+      Future<Map<String, dynamic>> server(
+        String _,
+        String path,
+        Map<String, dynamic> body,
+      ) async {
+        expect(path, '/revisions');
+        requestCount++;
+        committedOperation ??= body['operation_id'] as String;
+        expect(body['operation_id'], committedOperation);
+        if (requestCount == 1) {
+          throw StateError('Respons hilang setelah server commit');
+        }
+        return {
+          'revision_id': (body['payload'] as Map)['revision_id'],
+          'status': 'pending',
+        };
+      }
+
+      expect((await repo.syncDemo(server)).remaining, 1);
+      expect((await repo.syncDemo(server)).remaining, 0);
+      expect(requestCount, 2);
+    },
+  );
+  test('gagal commit pengajuan tidak membuat antrean parsial', () async {
+    final c = await child();
+    final revision = await repo.save('rollback-draft', c, input());
+    final before = repo.state;
+    repo.failNextCommit = true;
+    await expectLater(
+      repo.submit('rollback-submit', revision),
+      throwsStateError,
+    );
+    expect(repo.state, before);
+    expect(repo.pendingDemoSyncCount, 0);
+    await repo.close();
+    repo = await MvpRepository.open(
+      await databaseFactoryIo.openDatabase('${dir.path}/data.db'),
+      engine,
+      today: '2026-10-14',
+    );
+    expect(repo.pendingDemoSyncCount, 0);
+    expect(repo.state['revisions'][revision]['status'], 'draft');
+  });
+  test(
+    'antrean mengikuti urutan review dan koreksi tanpa catatan pribadi',
+    () async {
+      final c = await child();
+      final first = await repo.save('sync-d1', c, input());
+      await repo.submit('sync-s1', first);
+      await repo.review('sync-reject', first, false, 'Catatan tidak dikirim');
+      final second = await repo.save('sync-d2', c, input(11), previous: first);
+      await repo.submit('sync-s2', second);
+      await repo.review('sync-approve', second, true, '');
+      final calls = <Map<String, dynamic>>[];
+      final result = await repo.syncDemo((role, path, body) async {
+        calls.add(body);
+        if (path == '/revisions') {
+          final payload = body['payload'] as Map;
+          return {'revision_id': payload['revision_id'], 'status': 'pending'};
+        }
+        expect(role, 'gizi');
+        return {'revision_id': body['revision_id'], 'status': body['status']};
+      });
+      expect(result.sent, 4);
+      expect(result.remaining, 0);
+      expect(calls[1]['note'], 'Catatan demo sintetis');
+      expect(calls.toString(), isNot(contains('Catatan tidak dikirim')));
+      expect(
+        (calls[2]['payload'] as Map)['previous_id'],
+        (calls[0]['payload'] as Map)['revision_id'],
+      );
+    },
+  );
+  test(
+    'aggregate history replays approvals without exposing identities',
+    () async {
+      final c = await child();
+      expect(repo.aggregateHistory(), isEmpty);
+      final first = await repo.save('h-first', c, input());
+      await repo.submit('h-submit', first);
+      await repo.review('h-approve', first, true, '');
+      expect(repo.aggregateHistory(), hasLength(1));
+      expect(
+        repo.aggregateHistory().first['aggregate']['weightAge']['denominator'],
+        1,
+      );
+      final second = await repo.save('h-second', c, input(11), previous: first);
+      await repo.submit('h-submit2', second);
+      await repo.review('h-reject', second, false, 'Ukur ulang');
+      expect(repo.aggregateHistory(), hasLength(1));
+      final third = await repo.save('h-third', c, input(7), previous: second);
+      await repo.submit('h-submit3', third);
+      await repo.review('h-approve3', third, true, '');
+      final history = repo.aggregateHistory();
+      expect(history, hasLength(2));
+      expect(history.last['aggregate']['weightAge']['denominator'], 1);
+      expect(history.last['aggregate'], repo.aggregate());
+      expect(
+        history.first['aggregate']['weightAge']['categories'],
+        isNot(equals(history.last['aggregate']['weightAge']['categories'])),
+      );
+      expect(history.toString(), isNot(contains(c)));
+      expect(history.toString(), isNot(contains('Anak Sintetis')));
+      expect(history.every((entry) => entry['atDevice'] is String), isTrue);
+    },
+  );
+  test(
+    'invalid measurement date leaves revisions and audit unchanged',
+    () async {
+      final c = await child();
+      final before = repo.state;
+      await expectLater(
+        repo.save('invalid-date', c, {...input(), 'date': '2023-12-31'}),
+        throwsA(isA<FormatException>()),
+      );
+      expect(repo.state, before);
+      await expectLater(
+        repo.save('future-date', c, {...input(), 'date': '2026-10-15'}),
+        throwsA(isA<FormatException>()),
+      );
+      expect(repo.state, before);
+    },
+  );
+  test('incomplete or nonpositive measurements cannot be submitted', () async {
+    final c = await child();
+    final incomplete = await repo.save('incomplete', c, {
+      ...input(),
+      'weight': null,
+    });
+    final negative = await repo.save('negative', c, input(-1));
+    final before = repo.state;
+    await expectLater(
+      repo.submit('submit-incomplete', incomplete),
+      throwsStateError,
+    );
+    await expectLater(
+      repo.submit('submit-negative', negative),
+      throwsStateError,
+    );
+    expect(repo.state, before);
+    expect(repo.state['revisions'][incomplete]['status'], 'draft');
+    expect(repo.state['revisions'][negative]['status'], 'draft');
+    expect(repo.aggregate()['weightAge']['denominator'], 0);
+  });
+  test(
     'reject correction resubmit approve immutable history and idempotency',
     () async {
       final c = await child();

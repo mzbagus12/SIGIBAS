@@ -1,0 +1,6 @@
+# Database lokal dan cache pengujian demo
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+__pycache__/

@@ -385,7 +385,7 @@ void main() {
     expect(unknown.results[Index.weightAge]!.rawZ, isNull);
   });
   test('existing rounded and instrumented raw oracle: actual Dart comparisons', () {
-    const base = 'Revisi_Tahap_2/bukti/dev/';
+    const base = 'test/fixtures/oracle/';
     List<Map<String, String>> csv(String file) {
       final lines = File(file).readAsLinesSync();
       final header = lines.first.replaceAll('"', '').split(',');
@@ -395,15 +395,9 @@ void main() {
       }).toList();
     }
 
-    final inputs = csv('${base}audit-mvp/sas-survey_z_st.csv');
-    final rounded = csv('${base}oracle-r/official-wrapper.csv');
-    final raw = csv('${base}oracle-r/instrumented-wrapper.csv');
-    final stats = <String, dynamic>{
-      'fixtureCount': inputs.length,
-      'reference':
-          'official rounded source-mode; raw instrumented NOT official export',
-      'byIndex': <String, dynamic>{},
-    };
+    final inputs = csv('${base}sas-survey_z_st.csv');
+    final rounded = csv('${base}official-wrapper.csv');
+    final raw = csv('${base}instrumented-wrapper.csv');
     double? number(String? s) => double.tryParse(s ?? '');
     final counts = {
       for (final i in Index.values)
@@ -476,13 +470,6 @@ void main() {
         }
       }
     }
-    for (final i in Index.values) {
-      stats['byIndex'][i.name] = counts[i];
-    }
-    stats['differences'] = differences;
-    File('${base}implementasi-engine/dart-comparisons.json').writeAsStringSync(
-      '${const JsonEncoder.withIndent('  ').convert(stats)}\n',
-    );
     expect(
       differences,
       isEmpty,

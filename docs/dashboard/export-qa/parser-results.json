@@ -1,0 +1,10 @@
+{
+  "pdf_pages": 1,
+  "pdf_text_verified": true,
+  "xlsx_sheets": [
+    "Agregat",
+    "Keterangan"
+  ],
+  "xlsx_numeric_rows": 10,
+  "empty_pdf_pages": 1
+}

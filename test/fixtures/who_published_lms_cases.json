@@ -1,0 +1,542 @@
+[
+  {
+    "index": "weightAge",
+    "sex": "male",
+    "days": 0,
+    "kg": 2.302747185809084,
+    "cm": 49.8842,
+    "z": -2.4,
+    "category": "berat badan kurang"
+  },
+  {
+    "index": "weightAge",
+    "sex": "male",
+    "days": 0,
+    "kg": 2.880651448407322,
+    "cm": 49.8842,
+    "z": -1,
+    "category": "berat badan normal"
+  },
+  {
+    "index": "weightAge",
+    "sex": "male",
+    "days": 0,
+    "kg": 3.3464,
+    "cm": 49.8842,
+    "z": 0,
+    "category": "berat badan normal"
+  },
+  {
+    "index": "weightAge",
+    "sex": "male",
+    "days": 0,
+    "kg": 4.076976498842272,
+    "cm": 49.8842,
+    "z": 1.4,
+    "category": "risiko berat badan lebih"
+  },
+  {
+    "index": "weightAge",
+    "sex": "male",
+    "days": 0,
+    "kg": 4.71855114261517,
+    "cm": 49.8842,
+    "z": 2.5,
+    "category": "risiko berat badan lebih"
+  },
+  {
+    "index": "weightAge",
+    "sex": "female",
+    "days": 0,
+    "kg": 2.2454830058042465,
+    "cm": 49.1477,
+    "z": -2.4,
+    "category": "berat badan kurang"
+  },
+  {
+    "index": "weightAge",
+    "sex": "female",
+    "days": 0,
+    "kg": 2.794030020943672,
+    "cm": 49.1477,
+    "z": -1,
+    "category": "berat badan normal"
+  },
+  {
+    "index": "weightAge",
+    "sex": "female",
+    "days": 0,
+    "kg": 3.2322,
+    "cm": 49.1477,
+    "z": 0,
+    "category": "berat badan normal"
+  },
+  {
+    "index": "weightAge",
+    "sex": "female",
+    "days": 0,
+    "kg": 3.913446074517289,
+    "cm": 49.1477,
+    "z": 1.4,
+    "category": "risiko berat badan lebih"
+  },
+  {
+    "index": "weightAge",
+    "sex": "female",
+    "days": 0,
+    "kg": 4.50635397636632,
+    "cm": 49.1477,
+    "z": 2.5,
+    "category": "risiko berat badan lebih"
+  },
+  {
+    "index": "weightAge",
+    "sex": "male",
+    "days": 91,
+    "kg": 4.771893403176623,
+    "cm": 61.4013,
+    "z": -2.4,
+    "category": "berat badan kurang"
+  },
+  {
+    "index": "weightAge",
+    "sex": "male",
+    "days": 91,
+    "kg": 5.657083376004878,
+    "cm": 61.4013,
+    "z": -1,
+    "category": "berat badan normal"
+  },
+  {
+    "index": "weightAge",
+    "sex": "male",
+    "days": 91,
+    "kg": 6.369,
+    "cm": 61.4013,
+    "z": 0,
+    "category": "berat badan normal"
+  },
+  {
+    "index": "weightAge",
+    "sex": "male",
+    "days": 91,
+    "kg": 7.4886400892291975,
+    "cm": 61.4013,
+    "z": 1.4,
+    "category": "risiko berat badan lebih"
+  },
+  {
+    "index": "weightAge",
+    "sex": "male",
+    "days": 91,
+    "kg": 8.478245872137729,
+    "cm": 61.4013,
+    "z": 2.5,
+    "category": "risiko berat badan lebih"
+  },
+  {
+    "index": "weightAge",
+    "sex": "female",
+    "days": 91,
+    "kg": 4.305098460217527,
+    "cm": 59.7773,
+    "z": -2.4,
+    "category": "berat badan kurang"
+  },
+  {
+    "index": "weightAge",
+    "sex": "female",
+    "days": 91,
+    "kg": 5.1452070232299345,
+    "cm": 59.7773,
+    "z": -1,
+    "category": "berat badan normal"
+  },
+  {
+    "index": "weightAge",
+    "sex": "female",
+    "days": 91,
+    "kg": 5.8393,
+    "cm": 59.7773,
+    "z": 0,
+    "category": "berat badan normal"
+  },
+  {
+    "index": "weightAge",
+    "sex": "female",
+    "days": 91,
+    "kg": 6.963529888732077,
+    "cm": 59.7773,
+    "z": 1.4,
+    "category": "risiko berat badan lebih"
+  },
+  {
+    "index": "weightAge",
+    "sex": "female",
+    "days": 91,
+    "kg": 7.989688908865651,
+    "cm": 59.7773,
+    "z": 2.5,
+    "category": "risiko berat badan lebih"
+  },
+  {
+    "index": "heightAge",
+    "sex": "male",
+    "days": 0,
+    "kg": 3.3464,
+    "cm": 45.340747064,
+    "z": -2.4,
+    "category": "pendek"
+  },
+  {
+    "index": "heightAge",
+    "sex": "male",
+    "days": 0,
+    "kg": 3.3464,
+    "cm": 47.99109461,
+    "z": -1,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "male",
+    "days": 0,
+    "kg": 3.3464,
+    "cm": 49.8842,
+    "z": 0,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "male",
+    "days": 0,
+    "kg": 3.3464,
+    "cm": 52.53454754599999,
+    "z": 1.4,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "male",
+    "days": 0,
+    "kg": 3.3464,
+    "cm": 54.616963475,
+    "z": 2.5,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "female",
+    "days": 0,
+    "kg": 3.2322,
+    "cm": 44.677225207999996,
+    "z": -2.4,
+    "category": "pendek"
+  },
+  {
+    "index": "heightAge",
+    "sex": "female",
+    "days": 0,
+    "kg": 3.2322,
+    "cm": 47.28500217,
+    "z": -1,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "female",
+    "days": 0,
+    "kg": 3.2322,
+    "cm": 49.1477,
+    "z": 0,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "female",
+    "days": 0,
+    "kg": 3.2322,
+    "cm": 51.755476962,
+    "z": 1.4,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "female",
+    "days": 0,
+    "kg": 3.2322,
+    "cm": 53.804444575,
+    "z": 2.5,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "male",
+    "days": 91,
+    "kg": 6.369,
+    "cm": 56.4955817352,
+    "z": -2.4,
+    "category": "pendek"
+  },
+  {
+    "index": "heightAge",
+    "sex": "male",
+    "days": 91,
+    "kg": 6.369,
+    "cm": 59.357250723,
+    "z": -1,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "male",
+    "days": 91,
+    "kg": 6.369,
+    "cm": 61.4013,
+    "z": 0,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "male",
+    "days": 91,
+    "kg": 6.369,
+    "cm": 64.2629689878,
+    "z": 1.4,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "male",
+    "days": 91,
+    "kg": 6.369,
+    "cm": 66.5114231925,
+    "z": 2.5,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "female",
+    "days": 91,
+    "kg": 5.8393,
+    "cm": 54.727313695999996,
+    "z": -2.4,
+    "category": "pendek"
+  },
+  {
+    "index": "heightAge",
+    "sex": "female",
+    "days": 91,
+    "kg": 5.8393,
+    "cm": 57.673139039999995,
+    "z": -1,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "female",
+    "days": 91,
+    "kg": 5.8393,
+    "cm": 59.7773,
+    "z": 0,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "female",
+    "days": 91,
+    "kg": 5.8393,
+    "cm": 62.723125343999996,
+    "z": 1.4,
+    "category": "normal"
+  },
+  {
+    "index": "heightAge",
+    "sex": "female",
+    "days": 91,
+    "kg": 5.8393,
+    "cm": 65.0377024,
+    "z": 2.5,
+    "category": "normal"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "male",
+    "days": 0,
+    "kg": 2.7090164088651436,
+    "cm": 50,
+    "z": -2.4,
+    "category": "gizi kurang"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "male",
+    "days": 0,
+    "kg": 3.048880321437987,
+    "cm": 50,
+    "z": -1,
+    "category": "gizi baik"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "male",
+    "days": 0,
+    "kg": 3.3278,
+    "cm": 50,
+    "z": 0,
+    "category": "gizi baik"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "male",
+    "days": 0,
+    "kg": 3.77945899220103,
+    "cm": 50,
+    "z": 1.4,
+    "category": "berisiko gizi lebih"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "male",
+    "days": 0,
+    "kg": 4.1943546952633595,
+    "cm": 50,
+    "z": 2.5,
+    "category": "gizi lebih"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "female",
+    "days": 0,
+    "kg": 2.7195531158720776,
+    "cm": 50,
+    "z": -2.4,
+    "category": "gizi kurang"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "female",
+    "days": 0,
+    "kg": 3.065951115008284,
+    "cm": 50,
+    "z": -1,
+    "category": "gizi baik"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "female",
+    "days": 0,
+    "kg": 3.3518,
+    "cm": 50,
+    "z": 0,
+    "category": "gizi baik"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "female",
+    "days": 0,
+    "kg": 3.8176777107984594,
+    "cm": 50,
+    "z": 1.4,
+    "category": "berisiko gizi lebih"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "female",
+    "days": 0,
+    "kg": 4.248888871235068,
+    "cm": 50,
+    "z": 2.5,
+    "category": "gizi lebih"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "male",
+    "days": 731,
+    "kg": 7.954549916929552,
+    "cm": 75,
+    "z": -2.4,
+    "category": "gizi kurang"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "male",
+    "days": 731,
+    "kg": 8.886173219498142,
+    "cm": 75,
+    "z": -1,
+    "category": "gizi baik"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "male",
+    "days": 731,
+    "kg": 9.644,
+    "cm": 75,
+    "z": 0,
+    "category": "gizi baik"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "male",
+    "days": 731,
+    "kg": 10.859320590882866,
+    "cm": 75,
+    "z": 1.4,
+    "category": "berisiko gizi lebih"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "male",
+    "days": 731,
+    "kg": 11.963826257753896,
+    "cm": 75,
+    "z": 2.5,
+    "category": "gizi lebih"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "female",
+    "days": 731,
+    "kg": 7.540407073185323,
+    "cm": 75,
+    "z": -2.4,
+    "category": "gizi kurang"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "female",
+    "days": 731,
+    "kg": 8.493208994848349,
+    "cm": 75,
+    "z": -1,
+    "category": "gizi baik"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "female",
+    "days": 731,
+    "kg": 9.2786,
+    "cm": 75,
+    "z": 0,
+    "category": "gizi baik"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "female",
+    "days": 731,
+    "kg": 10.557073648407071,
+    "cm": 75,
+    "z": 1.4,
+    "category": "berisiko gizi lebih"
+  },
+  {
+    "index": "weightHeight",
+    "sex": "female",
+    "days": 731,
+    "kg": 11.738806117106995,
+    "cm": 75,
+    "z": 2.5,
+    "category": "gizi lebih"
+  }
+]

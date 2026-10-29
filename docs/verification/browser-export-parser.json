@@ -1,0 +1,13 @@
+{
+  "pdfPages": 1,
+  "pdfTextExtracted": 460,
+  "excelSheets": [
+    "Agregat",
+    "Keterangan"
+  ],
+  "excelDataRows": 3,
+  "expectedCounts": 1,
+  "noChildName": true,
+  "noExcelFormula": true,
+  "passed": true
+}

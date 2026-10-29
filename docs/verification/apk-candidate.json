@@ -1,0 +1,16 @@
+{
+  "variant": "release",
+  "sha256": "BBF6599C6CFFAEE0CD19B34EDBFA6ED4598D5DEE2319C289B9FE20E3F1C961E9",
+  "bytes": 120766979,
+  "minSdk": 24,
+  "targetSdk": 36,
+  "debuggable": false,
+  "internetPermission": false,
+  "allowBackup": false,
+  "cleartext": false,
+  "signatureSchemeV2": true,
+  "certificateSha256": "14f567cbfdb8703d59a482d33c4e8279e4ecc774a5628803ba53eb7b981b937a",
+  "signing": "Existing Android Debug key, not private release signing",
+  "singleApkInBuild": true,
+  "androidRuntimeTested": false
+}
