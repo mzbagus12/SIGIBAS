@@ -1,7 +1,7 @@
 {
   "variant": "release",
-  "sha256": "D3CEA9A0325E2BC87F4258A7FFC72221D683A4378572DD00852EB62C28D10132",
-  "bytes": 120865551,
+  "sha256": "D1B61F5A9A95D5A542E3153894C6607E03DE6301BAB8AB1464FC146C6D2CA8BC",
+  "bytes": 120944239,
   "minSdk": 24,
   "targetSdk": 36,
   "debuggable": false,
@@ -13,5 +13,7 @@
   "signing": "Existing Android Debug key, not private release signing",
   "singleApkInBuild": true,
   "androidRuntimeTested": false,
-  "uiRevision": "30 October 2026: push/pop pages, external labels, spacing and concise instructions"
+  "uiRevision": "30 October 2026: push/pop pages, external labels, spacing and concise instructions",
+  "launcherLabel": "SI-GIBAS",
+  "launcherIcon": "Child, protective heart and growth leaf, emerald background"
 }

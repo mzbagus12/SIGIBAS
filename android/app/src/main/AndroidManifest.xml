@@ -8,7 +8,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:usesCleartextTraffic="false"
-        android:label="sigibas_rasp"
+        android:label="SI-GIBAS"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <provider android:name="androidx.core.content.FileProvider" android:authorities="${applicationId}.reports" android:exported="false" android:grantUriPermissions="true">
@@ -61,3 +61,4 @@
         </intent>
     </queries>
 </manifest>
+
