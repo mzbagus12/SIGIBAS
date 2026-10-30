@@ -32,7 +32,7 @@ class _GovernmentHistoryState extends State<GovernmentHistory> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Setiap baris adalah keadaan agregat setelah persetujuan. Waktu berasal dari perangkat dan bukan waktu server.',
+          'Ringkasan setelah setiap persetujuan. Waktu mengikuti perangkat.',
           style: TextStyle(color: Color(0xFF577169), fontSize: 13),
         ),
         const SizedBox(height: 8),
@@ -45,10 +45,11 @@ class _GovernmentHistoryState extends State<GovernmentHistory> {
             label: Text(newestFirst ? 'Terbaru dahulu' : 'Terlama dahulu'),
           ),
           const Text(
-            'Geser tabel ke samping untuk melihat semua kolom.',
+            'Geser untuk kolom lainnya.',
             style: TextStyle(color: Color(0xFF577169), fontSize: 13),
           ),
           Card(
+            margin: const EdgeInsets.only(top: 16, bottom: 24),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: DataTable(

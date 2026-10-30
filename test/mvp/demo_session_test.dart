@@ -65,7 +65,7 @@ void main() {
       expect(session.busy, false);
     });
     await tester.pumpAndSettle();
-    expect(find.text('Daftar anak'), findsOneWidget);
+    expect(find.text('Tambah anak'), findsOneWidget);
     expect(find.text('Badan Gizi'), findsNothing);
     await tester.tap(find.byTooltip('Keluar'));
     await tester.pumpAndSettle();

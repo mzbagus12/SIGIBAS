@@ -52,11 +52,12 @@ class _GovernmentSummaryState extends State<GovernmentSummary> {
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 8),
           child: Text(
-            'Unit: observasi pengukuran disetujui efektif, bukan anak unik. Pilih indikator untuk melihat rincian. Geser tabel ke samping jika perlu.',
+            'Jumlah menunjukkan pengukuran, bukan anak unik.',
             style: TextStyle(color: Color(0xFF577169), fontSize: 13),
           ),
         ),
         Card(
+          margin: const EdgeInsets.only(top: 16, bottom: 24),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: SingleChildScrollView(
@@ -124,6 +125,7 @@ class _GovernmentSummaryState extends State<GovernmentSummary> {
           )
         else
           Card(
+            margin: const EdgeInsets.only(top: 16, bottom: 24),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: DataTable(

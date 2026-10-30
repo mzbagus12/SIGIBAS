@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../engine/engine.dart';
 import 'nutrition.dart';
+import 'ui_form_field.dart';
 import 'kms.dart';
 
 /// Pass effective approved revisions from repo.growthHistory(childId).
@@ -153,28 +154,35 @@ class _NutritionGrowthPanelState extends State<NutritionGrowthPanel> {
               Text(
                 'Zat besi (Fe) ${akg.ironMg.toString().replaceAll(RegExp(r'\.0$'), '')} mg • vitamin A ${akg.vitaminARe} RE • vitamin D ${akg.vitaminDMcg} µg per hari.',
               ),
-              const Text(
-                'RE = retinol equivalent (ekuivalen retinol). Ini acuan asupan, bukan dosis suplemen/kapsul vitamin atau obat.',
+              ExpansionTile(
+                title: const Text('Keterangan acuan'),
+                children: [
+                  const Text(
+                    'RE = retinol equivalent (ekuivalen retinol). Ini acuan asupan, bukan dosis suplemen/kapsul vitamin atau obat.',
+                  ),
+                  const Text(
+                    'Air total mencakup makanan/minuman, termasuk ASI; bukan anjuran memberi air putih tambahan kepada bayi. Nilai tabel tidak dikalikan berat badan aktual.',
+                  ),
+                ],
               ),
-              const Text(
-                'Air total mencakup makanan/minuman, termasuk ASI; bukan anjuran memberi air putih tambahan kepada bayi. Nilai tabel tidak dikalikan berat badan aktual.',
-              ),
-              TextField(
-                controller: energy,
-                keyboardType: const TextInputType.numberWithOptions(
-                  decimal: true,
-                ),
-                decoration: const InputDecoration(
-                  labelText: 'Asupan energi 24 jam sintetis (kkal)',
+              FormFieldBlock(
+                label: 'Asupan energi 24 jam sintetis (kkal)',
+                child: TextField(
+                  controller: energy,
+                  keyboardType: const TextInputType.numberWithOptions(
+                    decimal: true,
+                  ),
+                  decoration: const InputDecoration(),
                 ),
               ),
-              TextField(
-                controller: protein,
-                keyboardType: const TextInputType.numberWithOptions(
-                  decimal: true,
-                ),
-                decoration: const InputDecoration(
-                  labelText: 'Asupan protein 24 jam sintetis (g)',
+              FormFieldBlock(
+                label: 'Asupan protein 24 jam sintetis (g)',
+                child: TextField(
+                  controller: protein,
+                  keyboardType: const TextInputType.numberWithOptions(
+                    decimal: true,
+                  ),
+                  decoration: const InputDecoration(),
                 ),
               ),
               ExpansionTile(
@@ -290,11 +298,16 @@ class _NutritionGrowthPanelState extends State<NutritionGrowthPanel> {
               Text(
                 'Acuan PMT tambahan per hari: ${range.energyMin}–${range.energyMax} kkal; protein ${range.proteinMin}–${range.proteinMax} g. Tidak ditambahkan otomatis ke AKG sebagai target terapi.',
               ),
-            const Text(
-              'Menu: pangan lokal beragam, utamakan protein hewani; tekstur sesuai umur dan lanjutkan ASI. PMT tidak mengganti makanan utama. Susun porsi bersama tenaga gizi; alergi memerlukan tata laksana khusus.',
-            ),
-            const Text(
-              'Pemantauan dan durasi ditentukan tenaga kesehatan. Bila tidak membaik dalam 14 hari, evaluasi/rujuk sesuai juknis. Tidak ada penyesuaian kalori terapi otomatis.',
+            ExpansionTile(
+              title: const Text('Panduan PMT'),
+              children: [
+                const Text(
+                  'Menu: pangan lokal beragam, utamakan protein hewani; tekstur sesuai umur dan lanjutkan ASI. PMT tidak mengganti makanan utama. Susun porsi bersama tenaga gizi; alergi memerlukan tata laksana khusus.',
+                ),
+                const Text(
+                  'Pemantauan dan durasi ditentukan tenaga kesehatan. Bila tidak membaik dalam 14 hari, evaluasi/rujuk sesuai juknis. Tidak ada penyesuaian kalori terapi otomatis.',
+                ),
+              ],
             ),
             const Text(PmtAdvice.source),
             const Divider(height: 28),

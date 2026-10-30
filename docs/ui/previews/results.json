@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "viewport": "375x812 and 812x375",
+  "stages": [
+    "home",
+    "register",
+    "measurement",
+    "save",
+    "history",
+    "detail",
+    "submit",
+    "back refresh",
+    "logout clears nested routes"
+  ],
+  "errors": []
+}

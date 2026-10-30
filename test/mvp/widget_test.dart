@@ -28,7 +28,12 @@ void main() {
       ))!;
       await tester.pumpWidget(
         MaterialApp(
-          home: MvpWorkspace(repo: repo, role: 'Kader', onLogout: () {}),
+          home: MvpWorkspace(
+            repo: repo,
+            role: 'Kader',
+            initialPage: 'register',
+            onLogout: () {},
+          ),
         ),
       );
       await tester.tap(find.text('Daftar anak'));
@@ -55,6 +60,7 @@ void main() {
             key: UniqueKey(),
             repo: repo,
             role: 'BadanGizi',
+            initialPage: 'history',
             onLogout: () {},
           ),
         ),
@@ -68,12 +74,7 @@ void main() {
       );
       await tester.tap(find.byKey(const Key('revision-select-revision:d')));
       await tester.pumpAndSettle();
-      expect(
-        find.text(
-          'Isi alasan saat menolak agar kader tahu apa yang perlu diperbaiki. Catatan tersimpan di riwayat.',
-        ),
-        findsOneWidget,
-      );
+      expect(find.text('Catatan wajib untuk penolakan.'), findsOneWidget);
       expect(find.textContaining('Berat badan menurut umur'), findsOneWidget);
       expect(
         find.textContaining('Panjang/tinggi badan menurut umur'),
@@ -86,7 +87,7 @@ void main() {
       expect(find.text('Detail teknis'), findsNothing);
       expect(find.text('Riwayat audit teknis'), findsNothing);
       expect(find.text('Hasil pengukuran'), findsOneWidget);
-      expect(find.text('Tanggal ukur'), findsNWidgets(2));
+      expect(find.text('Tanggal ukur'), findsOneWidget);
       expect(find.text('Berat badan'), findsOneWidget);
       expect(find.text('Panjang / tinggi'), findsOneWidget);
       await tester.ensureVisible(find.text('Tolak'));
@@ -106,6 +107,7 @@ void main() {
             key: UniqueKey(),
             repo: repo,
             role: 'Kader',
+            initialPage: 'history',
             onLogout: () {},
           ),
         ),
@@ -116,7 +118,7 @@ void main() {
       );
       await tester.tap(find.byKey(const Key('revision-select-revision:d')));
       await tester.pumpAndSettle();
-      expect(find.byKey(const Key('revision-table')), findsOneWidget);
+      expect(find.byKey(const Key('revision-table')), findsNothing);
       await tester.ensureVisible(find.text('Koreksi'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Koreksi'));
@@ -135,6 +137,7 @@ void main() {
             key: UniqueKey(),
             repo: repo,
             role: 'Pemerintah',
+            initialPage: 'summary',
             onLogout: () {},
           ),
         ),
